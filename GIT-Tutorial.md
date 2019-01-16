@@ -1,7 +1,7 @@
-#### GIT Tutorial
+# GIT Tutorial
 
 
-##Grundlegende Befehle:
+### Grundlegende Befehle:
 
 git init
 
