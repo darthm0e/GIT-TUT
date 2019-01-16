@@ -8,6 +8,8 @@
 
 [Github Playground](https://try.github.io/)
 
+[Think like (a) GIT](http://think-like-a-git.net/)
+
 [Dieses Repo](http://git.enigma42.de/m0e/GIT-Tut)
 
 ---
