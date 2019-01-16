@@ -4,6 +4,7 @@
 ###### Hilfreiche Links vorab:
 
 [Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
+[Git für Einsteiger](https://www.thewebhatesme.com/entwicklung/git-fuer-einsteiger/)
 [Github Playground](https://try.github.io/)
 
 
