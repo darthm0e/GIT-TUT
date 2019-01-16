@@ -35,17 +35,19 @@ git clone --recursive
 
 
 
-git branch "branchname"		->		Branch erstellen
+git branch "branchname"						->		Branch erstellen
 
-git checkout "branchname"	->		Zum Branch wechseln
+git checkout "branchname"					->		Zum Branch wechseln
 
-git checkout master			->		Zurück zum master Branch
+git push --set-upstream origin "branchname"	->		Branch hochladen
 
-git merge "branchname"		->		branch einchecken
+git checkout master							->		Zurück zum master Branch
 
-git branch -d "brnachname"	->		branch löschen
+git merge "branchname"						->		branch einchecken
 
-git push					->		hochladen
+git branch -d "brnachname"					->		branch löschen
+
+git push									->		hochladen
 
 
 
@@ -113,5 +115,6 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
     `#> git branch -d meinfeature`
 - Aktualisierten master auf den Server pushen:
     `#> git push`
+
 
 - Fertig
