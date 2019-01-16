@@ -48,10 +48,10 @@ git push origin --tags  				->		Tags in Repo pushen
 
 ### Software (Windows oder MultiPlattform) ###
 
-[GitBash & GitGUI]:<https://git-scm.com/download/win>
-[SourceTree]:(https://www.sourcetreeapp.com/)
+[GitBash & GitGUI]<https://git-scm.com/download/win>
+[SourceTree](https://www.sourcetreeapp.com/)
 [Github Desktop](https://desktop.github.com/)
-[Git Kraken]:https://www.gitkraken.com/
-[Fork]:https://git-fork.com/
-[CodeReview]:https://github.com/FabriceSalvaire/CodeReview/
-[Git Blade]:https://gitblade.com/
+[Git Kraken](https://www.gitkraken.com/)
+[Fork](https://git-fork.com/)
+[CodeReview](https://github.com/FabriceSalvaire/CodeReview/)
+[Git Blade](https://gitblade.com/)
