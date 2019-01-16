@@ -1,7 +1,7 @@
 # GIT Tutorial
+[TOC]
 
-
-###### Hilfreiche Links vorab:
+### Hilfreiche Links vorab:
 
 [Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
 [Git für Einsteiger](https://www.thewebhatesme.com/entwicklung/git-fuer-einsteiger/)
@@ -109,4 +109,4 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 - Aktualisierten master auf den Server pushen:
     `#> git push`
 
-### Fertig :)
+- Fertig
