@@ -24,16 +24,20 @@ git clone url
 git clone --recursive
 
 
+##### Branching
+
 git branch <branchname>		->		Branch erstellen
 git checkout <branchname>	->		Zum Branch wechseln
 
 
 
-#### Reset lokal Repository
+##### Reset lokal Repository
 
 git fetch origin
 
 git reset –hard origin/master
+
+
 
 ##### Tags
 
