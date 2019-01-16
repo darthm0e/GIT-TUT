@@ -1,6 +1,11 @@
 # GIT Tutorial
 
 
+###### Hilfreiche Links vorab:
+
+[Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
+[Github Playground](https://try.github.io/)
+
 ### Grundlegende Befehle:
 
 git init
@@ -50,7 +55,7 @@ git push origin --tags  				->		Tags in Repo pushen
 
 ---
 
-### Software (Windows oder MultiPlattform) ###
+#### Software (Windows oder MultiPlattform) ###
 
 [GitBash & GitGUI](https://git-scm.com/download/win)
 
@@ -65,3 +70,34 @@ git push origin --tags  				->		Tags in Repo pushen
 [CodeReview](https://github.com/FabriceSalvaire/CodeReview/)
 
 [Git Blade](https://gitblade.com/)
+
+
+
+
+#### Häufiger Workflow
+
+Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
+
+- Aktuellen master-Branch vom Server downloaden (vorher mit git status sicherstellen, dass man sich auf dem master-Branch befindet. Wenn nicht: git checkout master):
+    `#> git pull`
+- Einen neuen Branch für das kommende Feature anlegen:
+    `#> git checkout -b meinfeature master`
+- [Änderungen am Code durchführen]
+- Geänderte und neue Dateien stagen:
+    `#> git add .`
+- Änderungen committen:
+    `#> git commit -m "Changes xyz"`
+- Jetzt den Branch auf den Server laden, wenn gewünscht:
+    `#> git push -u origin meinfeature`
+- … oder direkt in dem master wechseln:
+    `#> git checkout master`
+- (nochmals aktuellen Code ziehen - zur Sicherheit)
+    `#> git pull`
+- Eigenen Code mit master zusammenführen:
+    `#> git merge meinfeature`
+- Nicht mehr benötigten Branch löschen:
+    `#> git branch -d meinfeature`
+- Aktualisierten master auf den Server pushen:
+    `#> git push`
+
+### Fertig :)
