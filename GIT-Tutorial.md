@@ -1,12 +1,11 @@
 # GIT Tutorial
 [TOC]
-
 ### Hilfreiche Links vorab:
 
 [Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
 [Git für Einsteiger](https://www.thewebhatesme.com/entwicklung/git-fuer-einsteiger/)
 [Github Playground](https://try.github.io/)
-
+[Dieses Repo](http://git.enigma42.de/m0e/GIT-Tut) [^test]
 
 ---
 ### Grundlegende Befehle:
@@ -110,3 +109,4 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
     `#> git push`
 
 - Fertig
+[^test]: Pew Pew
