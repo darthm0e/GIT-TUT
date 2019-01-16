@@ -28,28 +28,24 @@ git clone url
 git clone --recursive
 
 
-##### Branching
+
+#### Branching
 
 ![branching](https://rogerdudler.github.io/git-guide/img/branches.png)
 
 
 
-git branch <branchname>		->		Branch erstellen
+git branch "branchname"		->		Branch erstellen
 
-git checkout <branchname>	->		Zum Branch wechseln
+git checkout "branchname"	->		Zum Branch wechseln
 
-git chekcout master			->		Zurück zum master Branch
+git checkout master			->		Zurück zum master Branch
 
-git merge <branchname>		->		branch einchecken
+git merge "branchname"		->		branch einchecken
+
+git branch -d "brnachname"	->		branch löschen
 
 git push					->		hochladen
-
-
-##### Reset lokal Repository
-
-git fetch origin
-
-git reset –hard origin/master
 
 
 
@@ -62,9 +58,18 @@ git tag -a v1.2.3 -m "Version 1.2.3"	->		Kommentierter Tag erstellen
 git push origin --tags  				->		Tags in Repo pushen
 
 
+
+#### Reset lokal Repository
+
+git fetch origin
+
+git reset –hard origin/master
+
+
+
 ---
 
-#### Software (Windows oder MultiPlattform) ###
+### Software (Windows oder MultiPlattform) ###
 
 [GitBash & GitGUI](https://git-scm.com/download/win)
 
@@ -83,7 +88,7 @@ git push origin --tags  				->		Tags in Repo pushen
 
 ---
 
-#### Häufiger Workflow
+### Häufiger Workflow
 
 Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
