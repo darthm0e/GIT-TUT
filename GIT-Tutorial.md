@@ -6,6 +6,8 @@
 [Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
 [Github Playground](https://try.github.io/)
 
+
+---
 ### Grundlegende Befehle:
 
 git init
@@ -72,7 +74,7 @@ git push origin --tags  				->		Tags in Repo pushen
 [Git Blade](https://gitblade.com/)
 
 
-
+---
 
 #### Häufiger Workflow
 
