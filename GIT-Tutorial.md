@@ -34,9 +34,15 @@ git clone --recursive
 
 ##### Branching
 
+![branching](https://rogerdudler.github.io/git-guide/img/branches.png)
+
+
+
 git branch <branchname>		->		Branch erstellen
 git checkout <branchname>	->		Zum Branch wechseln
-
+git chekcout master			->		Zurück zum master Branch
+git merge <branchname>		->		branch einchecken
+git push					->		hochladen
 
 
 ##### Reset lokal Repository
