@@ -50,9 +50,7 @@ git push origin --tags  				->		Tags in Repo pushen
 
 [GitBash & GitGUI](https://git-scm.com/download/win)
 
-
 [SourceTree](https://www.sourcetreeapp.com/)
-
 
 [Github Desktop](https://desktop.github.com/)
 
