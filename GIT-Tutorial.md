@@ -17,6 +17,29 @@ git remote add origin http://pfad.zum/repo.git
 
 git push -u origin master (einmalig, dann langt git push für push ins master)
 
+
+git clone url
+
+
+git clone --recursive
+
+
+git branch <branchname>		->		Branch erstellen
+git checkout <branchname>	->		Zum Branch wechseln
+
+
+
+#### Reset lokal Repository
+
+git fetch origin
+git reset –hard origin/master
+
+
+git tag									->		Tags anzeigen
+git tag -a v1.2.3 -m "Version 1.2.3"	->		Kommentierter Tag erstellen
+git push origin --tags  				->		Tags in Repo pushen
+
+
 ---
 
 ### Software (Windows oder MultiPlattform)
