@@ -25,7 +25,7 @@ git remote add origin http://pfad.zum/repo.git
 
 git push -u origin master (einmalig, dann langt git push für push ins master)
 
-git clone url
+git clone url (opt. lokalesVerzeichniss)
 
 git clone --recursive
 
@@ -33,7 +33,7 @@ git clone --recursive
 
 #### Branching
 
-![branching](https://rogerdudler.github.io/git-guide/img/branches.png)
+![branching](branching.svg)
 
 
 
