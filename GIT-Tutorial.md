@@ -33,7 +33,7 @@ git clone --recursive
 
 #### Branching
 
-![branching](branching.svg)
+![branching](branching.png)
 
 
 
