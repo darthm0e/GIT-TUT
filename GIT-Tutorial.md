@@ -1,14 +1,23 @@
 # GIT Tutorial
-> Made by m0e@2019  --- enigma42Labs
+
+
+> Work in Progress !
+> 
+> Made by m0e@2019  --- E42L
 
 [TOC]
 ### Hilfreiche Links vorab:
 
 [Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
+
 [Git für Einsteiger](https://www.thewebhatesme.com/entwicklung/git-fuer-einsteiger/)
+
 [Github Playground](https://try.github.io/)
+
 [Think like (a) GIT](http://think-like-a-git.net/)
+
 [Daten diese Tutorials](http://git.enigma42.de/m0e/GIT-Tut)
+
 [Tutorial Repo](https://github.com/darthm0e/Test-GIT-TUT)
 
 ---
@@ -266,7 +275,6 @@ git reset –hard origin/master
 [CodeReview](https://github.com/FabriceSalvaire/CodeReview/)
 
 [Git Blade](https://gitblade.com/)
-
 
 ---
 
