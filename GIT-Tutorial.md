@@ -307,4 +307,20 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
 - Fertig
 
+### weitere Befehle ### 
+
+`git stat`
+
+`git diff`
+
+`git fetch`
+
+`git mv`
+
+`git show`
+
+`git rebase`
+
+
+
 *~ Made by m0e@2019  --- enigma42Labs ~*
