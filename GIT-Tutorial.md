@@ -1,4 +1,6 @@
 # GIT Tutorial
+> Made by m0e@2019  --- enigma42Labs
+
 [TOC]
 ### Hilfreiche Links vorab:
 
@@ -10,6 +12,8 @@
 [Tutorial Repo](https://github.com/darthm0e/Test-GIT-TUT)
 
 ---
+
+
 ### Grundlegende Befehle:
 
 git init
@@ -294,3 +298,5 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
 
 - Fertig
+
+*~ Made by m0e@2019  --- enigma42Labs ~*
