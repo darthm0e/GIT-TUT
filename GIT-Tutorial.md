@@ -7,18 +7,19 @@
 
 [TOC]
 ### Hilfreiche Links vorab:
+[Offizielles GIT Buch](https://git-scm.com/book/de/v1/) -- Sehr gut, mehrsprachig
 
-[Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html)
+[Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html) -- kurz und knackig
 
 [Git für Einsteiger](https://www.thewebhatesme.com/entwicklung/git-fuer-einsteiger/)
 
-[Github Playground](https://try.github.io/)
+[Github Playground](https://try.github.io/) -- inkteraktive Spielwiese
 
 [Think like (a) GIT](http://think-like-a-git.net/)
 
-[Daten diese Tutorials](http://git.enigma42.de/m0e/GIT-Tut)
+[Daten diese Tutorials](http://git.enigma42.de/m0e/GIT-Tut) -- Repo des Tutorials
 
-[Tutorial Repo](https://github.com/darthm0e/Test-GIT-TUT)
+[Tutorial Repo](https://github.com/darthm0e/Test-GIT-TUT) -- Das Beispielrepository
 
 ---
 
@@ -40,8 +41,8 @@ git clone url (opt. lokalesVerzeichniss)
 git clone --recursive
 
 
-Lokal wird mit `git init` ein Repository erzeugt, und der Ordner `.git` angelegt. Hier liegen configuration des Repositorys und weiter Daten (für uns hier unrelevant).
-In der Regel wird man ein Verzeichnis wählen das bereits Daten enthält. Um diese dem Repository bekannt zu machen (einchecken) führen wir den Befehl `git add .` aus. Hiermit werden alle im Verzeichnis enthaltenen Dateien und Ordner ins Repository aufgenommen. Um nur bestimmte Dateien oder Ordner aufzunehmen kann man statt des Punktes den Datei-/Ordnernamen angeben. Möglich ist auch die angabe in Form von "Wildcards" um etwa alle dateien eines Typs auzunehmen -> `git add *.png` oder `git add GenialeDateien.*`
+Lokal wird mit `git init` ein Repository erzeugt, und der Ordner `.git` angelegt. Hier liegen Konfigurationsdateien des Repositorys und weiter Daten (für uns hier unrelevant).
+In der Regel wird man ein Verzeichnis wählen das bereits Daten enthält. Um diese dem Repository bekannt zu machen (einchecken) führen wir den Befehl `git add .` aus. Hiermit werden alle im Verzeichnis enthaltenen Dateien und Ordner ins Repository aufgenommen. Um nur bestimmte Dateien oder Ordner aufzunehmen kann man statt des Punktes den Datei-/Ordnernamen angeben. Möglich ist auch die Angabe in Form von "Wildcards" um etwa alle dateien eines Typs auzunehmen -> `git add *.png` oder `git add GenialeDateien.*`
 
 ```
 ~Screendump:~
@@ -244,6 +245,8 @@ git tag									->		Tags anzeigen
 
 git tag -a v1.2.3 -m "Version 1.2.3"	->		Kommentierter Tag erstellen
 
+git tag -s v1.5 -m 'my signed 1.5 tag'	->		Tag mit GPG signieren
+
 git push origin --tags  				->		Tags in Repo pushen
 
 
@@ -319,8 +322,13 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
 `git show`
 
+`git remote show origin`
+
+`git remote rm <name>`
+
 `git rebase`
 
-
+ 
+---
 
 *~ Made by m0e@2019  --- enigma42Labs ~*
