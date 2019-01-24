@@ -219,7 +219,7 @@ Um die aktuellsten Änderungen ins lokale Repository zu übertragen führt man `
 
 #### Branching
 
-![branching](branching.png)
+![branching](img/branching.png)
 
 
 
@@ -241,6 +241,18 @@ git push									->		hochladen
 
 ##### Tags
 
+In GIT (wie auch in anderen VersionControll-Systemen - VCS) können mit Hilfe von Tags wichtige Punkte in der Commit-Hitory markiert werden. Normalerweise werden hiermit ReleaseVersionen oder andere Meilensteine markiert.
+![tags](img/tag.png)
+Um sich die in einem Repository vorhandenn Tags anzeigen zu lassen wird `git tag` benutzt. Hiermit werden die Tags in alphabetischer Reihenfolge aufgelistet
+
+```
+$> git tag
+0.1
+help
+testing
+```
+Um nur bestimmte Tags zu sehen kann man folgenden Befehl verwenden: `git tag -l 'v1.4.2'
+`
 git tag									->		Tags anzeigen
 
 git tag -a v1.2.3 -m "Version 1.2.3"	->		Kommentierter Tag erstellen
@@ -264,12 +276,12 @@ git reset –hard origin/master
 ### Software (Windows oder MultiPlattform) ###
 
 [GitBash & GitGUI](https://git-scm.com/download/win)
-![gitGUI](gitGUI.png)
+![gitGUI](img/gitGUI.png)
 
 [SourceTree](https://www.sourcetreeapp.com/)
 
 [Github Desktop](https://desktop.github.com/)
-![gitDesktop](gitDesktop.png)
+![gitDesktop](img/gitDesktop.png)
 
 [Git Kraken](https://www.gitkraken.com/)
 
