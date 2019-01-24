@@ -285,12 +285,12 @@ git reset –hard origin/master
 ### Software (Windows oder MultiPlattform) ###
 
 [GitBash & GitGUI](https://git-scm.com/download/win)
-![gitGUI](img/gitGUI.png)
+![gitGUI](img/gitGUI.png)  ^GitGUI^ ^Hauptfenster^
 
 [SourceTree](https://www.sourcetreeapp.com/)
 
 [Github Desktop](https://desktop.github.com/)
-![gitDesktop](img/gitDesktop.png)
+![gitDesktop](img/gitDesktop.png) ^Github^ ^Desktop^ ^Hauptfenster^
 
 [Git Kraken](https://www.gitkraken.com/)
 
