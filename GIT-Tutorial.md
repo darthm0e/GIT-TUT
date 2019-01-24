@@ -253,6 +253,15 @@ testing
 ```
 Um nur bestimmte Tags zu sehen kann man folgenden Befehl verwenden: `git tag -l 'v1.4.2'
 `
+
+GIT unterscheidet 2 Arten von Tags, einfache (engl. lightweight) und kommentierte (engl. annotated)
+Ein normaler Tag ist lediglich ein Zeiger auf einen Commit. Der Tag bleibt mit dem Commit verbunden und wird auch von nachfolgenden Änderungen nicht beeinflusst.
+Ein Kommentierter Tag wird als vollwertiges Objekt in GIT gespeichert (ähnlich Commit) und umfasst eine Checksumme, Namen des Verfassers, die eMail Adresse das Datum und sowie eine Tag Nachricht. Desweiteren kann solch ein Tag mit GPG signiert werden.
+
+
+
+Um nur bestimmte Tags zu sehen kann man folgenden Befehl verwenden: `git tag -l 'v1.4.2'
+`
 git tag									->		Tags anzeigen
 
 git tag -a v1.2.3 -m "Version 1.2.3"	->		Kommentierter Tag erstellen
