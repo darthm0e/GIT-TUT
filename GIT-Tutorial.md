@@ -34,7 +34,7 @@ git commit -m "grund" || git commit -a -m "grund"
 
 git remote add origin http://pfad.zum/repo.git
 
-git push -u origin master (einmalig, dann langt git push für push ins master)
+git push -u origin master (master ist hier der Name des Branch, also hier der Hauptbranch)
 
 git clone url (opt. lokalesVerzeichniss)
 
