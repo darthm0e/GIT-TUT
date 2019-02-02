@@ -40,9 +40,18 @@ git clone url (opt. lokalesVerzeichniss)
 
 git clone --recursive
 
+---
+
+### Grundlagen
+GIT ist ein relativ neues VCS (Version-Controll-System), welches im Unterschied zu vielen anderen Änderungen an Dateien und Ordnern nicht als Diffs (fortlaufende Liste der Änderung an Dateien) sondern erzeugt bei einem Commit einen Snapshot des Repository-*"Dateisystems"*
+Hierbei werden effizienter weise nur geänderte Dateien neu gespeichert. Auf unveränderte Dateien wird nur ein Verweis auf den jeweiligen Snapshot angelegt. Dieses Konzept vereinfacht unter anderem die Arbeit mit Branches (*Grundlagen > Branching*).
+
+
+![Snapshots in GIT](img/snapshot.png)
+
 
 Lokal wird mit `git init` ein Repository erzeugt, und der Ordner `.git` angelegt. Hier liegen Konfigurationsdateien des Repositorys und weiter Daten (für uns hier unrelevant).
-In der Regel wird man ein Verzeichnis wählen das bereits Daten enthält. Um diese dem Repository bekannt zu machen (einchecken) führen wir den Befehl `git add .` aus. Hiermit werden alle im Verzeichnis enthaltenen Dateien und Ordner ins Repository aufgenommen. Um nur bestimmte Dateien oder Ordner aufzunehmen kann man statt des Punktes den Datei-/Ordnernamen angeben. Möglich ist auch die Angabe in Form von "Wildcards" um etwa alle dateien eines Typs auzunehmen -> `git add *.png` oder `git add GenialeDateien.*`
+In der Regel wird man ein Verzeichnis wählen das bereits Daten enthält. Um diese dem Repository bekannt zu machen (einchecken) führen wir den Befehl `git add .` aus. Hiermit werden alle im Verzeichnis enthaltenen Dateien und Ordner ins Repository aufgenommen. Um nur bestimmte Dateien oder Ordner aufzunehmen kann man statt des Punktes den Datei-/Ordnernamen angeben. Möglich ist auch die Angabe in Form von "Wildcards" um etwa alle Dateien eines Typs auzunehmen -> `git add *.png` oder `git add GenialeDateien.*`
 
 ```
 ~Screendump:~
@@ -271,6 +280,15 @@ git tag -s v1.5 -m 'my signed 1.5 tag'	->		Tag mit GPG signieren
 git push origin --tags  				->		Tags in Repo pushen
 
 
+
+#### Aliase und Autovervollständigung
+
+##### Autocompletion
+Um für GIT Befehle eine Autovervollständigung zu erhalten, läd man (hier für BASH) das Script unter: [Git-completion.bash]( https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
+herunter, und fügt `source ~/git-completion.bash` zu .bashrc hinzu.
+
+##### Alias
+git config --global alias.upPush ´git add . ; git commit -a -m; git push -u origin´
 
 #### Reset lokal Repository
 
