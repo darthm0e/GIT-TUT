@@ -1,13 +1,11 @@
 # GIT Tutorial
 
 
-> Work in Progress !
-> 
-> Made by m0e@2019  --- E42L
+` Work in Progress ! ||| Made by m0e@2019  --- E42L`
 
 [TOC]
 
-### Hilfreiche Links vorab:
+## Hilfreiche Links vorab:
 [Offizielles GIT Buch](https://git-scm.com/book/de/v1/) -- Sehr gut, mehrsprachig
 
 [Tutorial - kein SchnickSchnack](https://rogerdudler.github.io/git-guide/index.de.html) -- kurz und knackig
@@ -25,7 +23,7 @@
 ---
 
 
-### Grundlegende Befehle:
+## Grundlegende Befehle:
 
 git init
 
@@ -43,7 +41,9 @@ git clone --recursive
 
 ---
 
-### Grundlagen
+
+## Grundlagen
+
 GIT ist ein relativ neues VCS (Version-Controll-System), welches im Unterschied zu vielen anderen Änderungen an Dateien und Ordnern nicht als Diffs (fortlaufende Liste der Änderung an Dateien) sondern erzeugt bei einem Commit einen Snapshot des Repository-*"Dateisystems"*
 Hierbei werden effizienter weise nur geänderte Dateien neu gespeichert. Auf unveränderte Dateien wird nur ein Verweis auf den jeweiligen Snapshot angelegt. Dieses Konzept vereinfacht unter anderem die Arbeit mit Branches (*Grundlagen > Branching*).
 
@@ -227,7 +227,7 @@ Um die aktuellsten Änderungen ins lokale Repository zu übertragen führt man `
 
 
 
-#### Branching
+### Branching
 
 ![branching](img/branching.png)
 
@@ -249,7 +249,7 @@ git push									->		hochladen
 
 
 
-##### Tags
+### Tags
 
 In GIT (wie auch in anderen VersionControll-Systemen - VCS) können mit Hilfe von Tags wichtige Punkte in der Commit-Hitory markiert werden. Normalerweise werden hiermit ReleaseVersionen oder andere Meilensteine markiert.
 ![tags](img/tag.png)
@@ -282,16 +282,17 @@ git push origin --tags  				->		Tags in Repo pushen
 
 
 
-#### Aliase und Autovervollständigung
+## Aliase und Autovervollständigung
 
-##### Autocompletion
+### Autocompletion
 Um für GIT Befehle eine Autovervollständigung zu erhalten, läd man (hier für BASH) das Script unter: [Git-completion.bash]( https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
 herunter, und fügt `source ~/git-completion.bash` zu .bashrc hinzu.
 
-##### Alias
+### Alias
 git config --global alias.upPush ´git add . ; git commit -a -m; git push -u origin´
 
-#### Reset lokal Repository
+
+## Reset lokal Repository
 
 git fetch origin
 
@@ -301,7 +302,7 @@ git reset –hard origin/master
 
 ---
 
-### Software (Windows oder MultiPlattform) ###
+## Software (Windows oder MultiPlattform) ###
 
 [GitBash & GitGUI](https://git-scm.com/download/win)
 ![gitGUI](img/gitGUI.png)  ^GitGUI^ ^Hauptfenster^
@@ -321,7 +322,7 @@ git reset –hard origin/master
 
 ---
 
-### Häufiger Workflow
+## Häufiger Workflow
 
 Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
@@ -350,7 +351,7 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
 - Fertig
 
-### weitere Befehle ### 
+## weitere Befehle ### 
 
 `git stat`
 

@@ -1,0 +1,258 @@
+<h1><a id="0"></a>GIT Tutorial</h1>
+<p id="line3"><code>Work in Progress ! ||| Made by m0e@2019 --- E42L</code></p>
+<p id="line5"></p><ul class="table-of-contents"><li><a href="#0">GIT Tutorial</a></li><ul class="table-of-contents"><li><a href="#7">Hilfreiche Links vorab:</a></li><li><a href="#25">Grundlegende Befehle:</a></li><li><a href="#44">Grundlagen</a></li><ul class="table-of-contents"><li><a href="#229">Branching</a></li><li><a href="#251">Tags</a></li></ul><li><a href="#284">Aliase und Autovervollständigung</a></li><ul class="table-of-contents"><li><a href="#286">Autocompletion</a></li><li><a href="#290">Alias</a></li></ul><li><a href="#294">Reset lokal Repository</a></li><li><a href="#304">Software (Windows oder MultiPlattform)</a></li><li><a href="#324">Häufiger Workflow</a></li><li><a href="#353">weitere Befehle</a></li></ul></ul><p></p>
+<h2><a id="7"></a>Hilfreiche Links vorab:</h2>
+<p id="line8"><a href="https://git-scm.com/book/de/v1/">Offizielles GIT Buch</a> -- Sehr gut, mehrsprachig</p>
+<p id="line10"><a href="https://rogerdudler.github.io/git-guide/index.de.html">Tutorial - kein SchnickSchnack</a> -- kurz und knackig</p>
+<p id="line12"><a href="https://www.thewebhatesme.com/entwicklung/git-fuer-einsteiger/">Git für Einsteiger</a></p>
+<p id="line14"><a href="https://try.github.io/">Github Playground</a> -- inkteraktive Spielwiese</p>
+<p id="line16"><a href="http://think-like-a-git.net/">Think like (a) GIT</a></p>
+<p id="line18"><a href="http://git.enigma42.de/m0e/GIT-Tut">Daten diese Tutorials</a> -- Repo des Tutorials</p>
+<p id="line20"><a href="https://github.com/darthm0e/Test-GIT-TUT">Tutorial Repo</a> -- Das Beispielrepository</p>
+<hr id="line22">
+<h2><a id="25"></a>Grundlegende Befehle:</h2>
+<p id="line27">git init</p>
+<p id="line29">git add . || git add <filename></filename></p>
+<p id="line31">git commit -m "grund" || git commit -a -m "grund"</p>
+<p id="line33">git remote add origin <a href="http://pfad.zum/repo.git">http://pfad.zum/repo.git</a></p>
+<p id="line35">git push -u origin master (master ist hier der Name des Branch, also hier der Hauptbranch)</p>
+<p id="line37">git clone url (opt. lokalesVerzeichniss)</p>
+<p id="line39">git clone --recursive</p>
+<hr id="line41">
+<h2><a id="44"></a>Grundlagen</h2>
+<p id="line46">GIT ist ein relativ neues VCS (Version-Controll-System), welches im Unterschied zu vielen anderen Änderungen an Dateien und Ordnern nicht als Diffs (fortlaufende Liste der Änderung an Dateien) sondern erzeugt bei einem Commit einen Snapshot des Repository-<em>"Dateisystems"</em><br>
+Hierbei werden effizienter weise nur geänderte Dateien neu gespeichert. Auf unveränderte Dateien wird nur ein Verweis auf den jeweiligen Snapshot angelegt. Dieses Konzept vereinfacht unter anderem die Arbeit mit Branches (<em>Grundlagen &gt; Branching</em>).</p>
+<p id="line50"><img src="file:///home/m0e/GIT/GIT-Tut/img/snapshot.png" alt="Snapshots in GIT"></p>
+<p id="line53">Lokal wird mit <code>git init</code> ein Repository erzeugt, und der Ordner <code>.git</code> angelegt. Hier liegen Konfigurationsdateien des Repositorys und weiter Daten (für uns hier unrelevant).<br>
+In der Regel wird man ein Verzeichnis wählen das bereits Daten enthält. Um diese dem Repository bekannt zu machen (einchecken) führen wir den Befehl <code>git add .</code> aus. Hiermit werden alle im Verzeichnis enthaltenen Dateien und Ordner ins Repository aufgenommen. Um nur bestimmte Dateien oder Ordner aufzunehmen kann man statt des Punktes den Datei-/Ordnernamen angeben. Möglich ist auch die Angabe in Form von "Wildcards" um etwa alle Dateien eines Typs auzunehmen -&gt; <code>git add *.png</code> oder <code>git add GenialeDateien.*</code></p>
+<pre><code>~Screendump:~
+
+$ git init
+Initialized empty Git repository in /mnt/c/Users/m0e/Documents/GIT/Test-GIT-TUT/.git/
+
+$ git add *.md
+</code></pre>
+<p id="line65">Unsere Dateien wurden jetzt zur Versionskontrolle (Staging Area) hinzugefügt, im Git Jargon <code>staged</code> oder <code>staging</code> genannt.<br>
+mit <code>git status</code> zeigt uns GIT diesen Zustand auch an:</p>
+<pre><code>~Screendump:~
+
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+        new file:   README.md
+        new file:   Test.md
+
+</code></pre>
+<p id="line83">Nachdem nun alle Dateien in der Staging Area gesammelt sind können wir einen Commit ausführen und die Dateien zum Repository hinzufügen.<br>
+<code>git commit</code> öffnet den Standard Texteditor mit einer ähnlichen Meldung:</p>
+<pre><code>  GNU nano 2.7.4           File: /mnt/c/Users/m0e/Documents/GIT/Test-GIT-TUT/.git/COMMIT_EDITMSG                     
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   README.md
+#       new file:   Test.md
+#
+</code></pre>
+<p id="line100">hier kann man noch weiter Kommentare einfügen, i.d.R. wird man die vorhanden Kommentare lassen, welches die Ausgabe von <code>git status</code> enthält. Hierdurch erkennt man besser was genau mit dem Commit geändert wurde. Gibt man zusätzlich den Schalter -v mit an wird noch ein DateiDiff der Commitmeldung hinzugefügt.</p>
+<p id="line102">Bei kleinen Änderungen kann die Commit Nachricht auch direkt im BEfehl mitgegeben werden</p>
+<pre><code>$ git commit -m "Schneller Commit, kleine Bugfixes"
+[master (root-commit) f99b0dd] Schneller Commit, kleine Bugfixes
+ 2 files changed, 4 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 Test.md
+</code></pre>
+<p id="line111">Die Ausgabe darunter teilt uns nun mit das der Commit erfolgreich dem <code>master Branch</code> hinzugefügt wurde, die SHA-1 Checksumme <em>(f99b0dd)</em>, die Commitmeldung, die geänderten Dateien und eine Angabe über die hinzugefügten oder entfernten Zeilen.</p>
+<p id="line113">Für Dateien die bereits mit <code>git add</code> hinzugefügt wurden kann man später das Staging überspringen.</p>
+<pre><code>$ git commit -a -m "Schneller Commit, kleine Bugfixes, OHNE Staging"
+[master f205c80] Schneller Commit, kleine Bugfixes, OHNE Staging
+ 1 file changed, 3 insertions(+)
+</code></pre>
+<p id="line120">Normalerweise wird man im Umgang mit GIT einen Zentralen Server wie Github, Gitlab, Bitbucket oder selbsteghostet benutzen. Um unserem Lokalen Repository diesen Server bekannt zu machen führen wir den folgenden Befehl aus:<br>
+<code>git remote add origin https://github.com/darthm0e/Test-GIT-TUT.git</code><br>
+Im Beispiel wird das <strong>Vorher</strong> angelegte Repository <a href="https://github.com/darthm0e/Test-GIT-TUT">Test-GIT-TUT</a> auf <a href="http://www.github.com">Github</a> benutzt.</p>
+<p id="line124">Wenn wir jetzt <code>git push -u origin master</code> ausführen werden unsere Daten des Commits auf den Remote Server (origin, Name wählbar) in den Master-Branch geladen. Hiermit können auch weiter Server oder Branches hinzugefügt werden.<br>
+<code>git push -u developer nightly</code> würde die Daten auf einen mit <code>git remote</code> als Developer in die <em>Nightly-Branch</em> laden.</p>
+<pre><code>$ git push -u origin master
+Username for 'https://github.com': supamoe25@gmail.com
+Password for 'https://supamoe25@gmail.com@github.com':
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 612 bytes | 0 bytes/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/darthm0e/Test-GIT-TUT.git
+ * [new branch]      master -&gt; master
+Branch master set up to track remote branch master from origin.
+</code></pre>
+<p id="line141">Gibt man nun jemandem den Link zum Repository, kann sich dieser den Inhalt anschauen, auf seinen Rechner laden, bearbeiten, änderungen hochladen (schreibrechte vorrausgesetzt) etc.</p>
+<p id="line143"><code>git clone &lt;link&gt;</code> oder <code>git clone --recursive &lt;link&gt;</code></p>
+<p id="line145">lädt das Repository in einen Unterordner(Name des Repo) ins aktuelle Verzeichniss.</p>
+<pre><code>$ git clone https://github.com/darthm0e/Test-GIT-TUT.git
+Cloning into 'Test-GIT-TUT'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 7 (delta 0), reused 7 (delta 0), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+</code></pre>
+<p id="line156">Mit <code>git log</code> bzw <code>git log -p</code> kann man sich alle Commits bzw alle Commits mit änderungen anzeigen lassen:</p>
+<pre><code>$ git log
+
+commit f205c80841f3b37957101285fc6af5b1691cc81d
+Author: m0e &lt;supamoe25@gmail.com&gt;
+Date:   Sat Jan 19 16:01:40 2019 +0100
+
+    Schneller Commit, kleine Bugfixes, OHNE Staging
+
+commit f99b0dd5b53a0f66e893bf6cd269eca779851082
+Author: m0e &lt;supamoe25@gmail.com&gt;
+Date:   Sat Jan 19 15:55:32 2019 +0100
+
+    Schneller Commit, kleine Bugfixes
+(END)
+</code></pre>
+<pre><code>git log -p
+
+commit f205c80841f3b37957101285fc6af5b1691cc81d
+Author: m0e &lt;supamoe25@gmail.com&gt;
+Date:   Sat Jan 19 16:01:40 2019 +0100
+
+    Schneller Commit, kleine Bugfixes, OHNE Staging
+
+diff --git a/Test.md b/Test.md
+index 980a0d5..d6baa93 100644
+--- a/Test.md
++++ b/Test.md
+@@ -1 +1,4 @@
+ Hello World!
++
++
++Was hinzugef&lt;C3&gt;&lt;BC&gt;gt
+
+commit f99b0dd5b53a0f66e893bf6cd269eca779851082
+Author: m0e &lt;supamoe25@gmail.com&gt;
+Date:   Sat Jan 19 15:55:32 2019 +0100
+
+    Schneller Commit, kleine Bugfixes
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..8829e9f
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,3 @@
++Hello World !
++
++Daten fuers GIT Tut
+diff --git a/Test.md b/Test.md
+new file mode 100644
+index 0000000..980a0d5
+--- /dev/null
++++ b/Test.md
+@@ -0,0 +1 @@
++Hello World!
+(END)
+</code></pre>
+<p id="line217">Eine Übersicht über die vorhandenen Remote Repositorys gibt <code>git remote -v</code></p>
+<pre><code>$ git remote -v
+origin  https://github.com/darthm0e/Test-GIT-TUT.git (fetch)
+origin  https://github.com/darthm0e/Test-GIT-TUT.git (push)
+</code></pre>
+<p id="line225">Um die aktuellsten Änderungen ins lokale Repository zu übertragen führt man <code>git pull</code> aus. GIT versucht die neuen Commits aus dem Remote Repository zu holen und mit den lokalen Dateien zusammenzuführen.</p>
+<h3><a id="229"></a>Branching</h3>
+<p id="line231"><img src="file:///home/m0e/GIT/GIT-Tut/img/branching.png" alt="branching"></p>
+<p id="line235">git branch "branchname"                     -&gt;      Branch erstellen</p>
+<p id="line237">git checkout "branchname"                   -&gt;      Zum Branch wechseln</p>
+<p id="line239">git push --set-upstream origin "branchname" -&gt;      Branch hochladen</p>
+<p id="line241">git checkout master                         -&gt;      Zurück zum master Branch</p>
+<p id="line243">git merge "branchname"                      -&gt;      branch einchecken</p>
+<p id="line245">git branch -d "brnachname"                  -&gt;      branch löschen</p>
+<p id="line247">git push                                    -&gt;      hochladen</p>
+<h3><a id="251"></a>Tags</h3>
+<p id="line253">In GIT (wie auch in anderen VersionControll-Systemen - VCS) können mit Hilfe von Tags wichtige Punkte in der Commit-Hitory markiert werden. Normalerweise werden hiermit ReleaseVersionen oder andere Meilensteine markiert.<br>
+<img src="file:///home/m0e/GIT/GIT-Tut/img/tag.png" alt="tags"><br>
+Um sich die in einem Repository vorhandenn Tags anzeigen zu lassen wird <code>git tag</code> benutzt. Hiermit werden die Tags in alphabetischer Reihenfolge aufgelistet</p>
+<pre><code>$&gt; git tag
+0.1
+help
+testing
+</code></pre>
+<p id="line263">Um nur bestimmte Tags zu sehen kann man folgenden Befehl verwenden: <code>git tag -l 'v1.4.2'</code></p>
+<p id="line266">GIT unterscheidet 2 Arten von Tags, einfache (engl. lightweight) und kommentierte (engl. annotated)<br>
+Ein normaler Tag ist lediglich ein Zeiger auf einen Commit. Der Tag bleibt mit dem Commit verbunden und wird auch von nachfolgenden Änderungen nicht beeinflusst.<br>
+Ein Kommentierter Tag wird als vollwertiges Objekt in GIT gespeichert (ähnlich Commit) und umfasst eine Checksumme, Namen des Verfassers, die eMail Adresse das Datum und sowie eine Tag Nachricht. Desweiteren kann solch ein Tag mit GPG signiert werden.</p>
+<p id="line272">Um nur bestimmte Tags zu sehen kann man folgenden Befehl verwenden: <code>git tag -l 'v1.4.2'</code><br>
+git tag                                 -&gt;      Tags anzeigen</p>
+<p id="line276">git tag -a v1.2.3 -m "Version 1.2.3"    -&gt;      Kommentierter Tag erstellen</p>
+<p id="line278">git tag -s v1.5 -m 'my signed 1.5 tag'  -&gt;      Tag mit GPG signieren</p>
+<p id="line280">git push origin --tags                  -&gt;      Tags in Repo pushen</p>
+<h2><a id="284"></a>Aliase und Autovervollständigung</h2>
+<h3><a id="286"></a>Autocompletion</h3>
+<p id="line287">Um für GIT Befehle eine Autovervollständigung zu erhalten, läd man (hier für BASH) das Script unter: <a href="https://github.com/git/git/blob/master/contrib/completion/git-completion.bash">Git-completion.bash</a><br>
+herunter, und fügt <code>source ~/git-completion.bash</code> zu .bashrc hinzu.</p>
+<h3><a id="290"></a>Alias</h3>
+<p id="line291">git config --global alias.upPush ´git add . ; git commit -a -m; git push -u origin´</p>
+<h2><a id="294"></a>Reset lokal Repository</h2>
+<p id="line296">git fetch origin</p>
+<p id="line298">git reset –hard origin/master</p>
+<hr id="line302">
+<h2><a id="304"></a>Software (Windows oder MultiPlattform)</h2>
+<p id="line306"><a href="https://git-scm.com/download/win">GitBash &amp; GitGUI</a><br>
+<img src="file:///home/m0e/GIT/GIT-Tut/img/gitGUI.png" alt="gitGUI">  ^GitGUI^ ^Hauptfenster^</p>
+<p id="line309"><a href="https://www.sourcetreeapp.com/">SourceTree</a></p>
+<p id="line311"><a href="https://desktop.github.com/">Github Desktop</a><br>
+<img src="file:///home/m0e/GIT/GIT-Tut/img/gitDesktop.png" alt="gitDesktop"> ^Github^ ^Desktop^ ^Hauptfenster^</p>
+<p id="line314"><a href="https://www.gitkraken.com/">Git Kraken</a></p>
+<p id="line316"><a href="https://git-fork.com/">Fork</a></p>
+<p id="line318"><a href="https://github.com/FabriceSalvaire/CodeReview/">CodeReview</a></p>
+<p id="line320"><a href="https://gitblade.com/">Git Blade</a></p>
+<hr id="line322">
+<h2><a id="324"></a>Häufiger Workflow</h2>
+<p id="line326">Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:</p>
+<ul id="line328">
+<li id="line328">Aktuellen master-Branch vom Server downloaden (vorher mit git status sicherstellen, dass man sich auf dem master-Branch befindet. Wenn nicht: git checkout master):<br>
+<code>#&gt; git pull</code></li>
+<li id="line330">Einen neuen Branch für das kommende Feature anlegen:<br>
+<code>#&gt; git checkout -b meinfeature master</code></li>
+<li id="line332">[Änderungen am Code durchführen]</li>
+<li id="line333">Geänderte und neue Dateien stagen:<br>
+<code>#&gt; git add .</code></li>
+<li id="line335">Änderungen committen:<br>
+<code>#&gt; git commit -m "Changes xyz"</code></li>
+<li id="line337">Jetzt den Branch auf den Server laden, wenn gewünscht:<br>
+<code>#&gt; git push -u origin meinfeature</code></li>
+<li id="line339">… oder direkt in dem master wechseln:<br>
+<code>#&gt; git checkout master</code></li>
+<li id="line341">(nochmals aktuellen Code ziehen - zur Sicherheit)<br>
+<code>#&gt; git pull</code></li>
+<li id="line343">Eigenen Code mit master zusammenführen:<br>
+<code>#&gt; git merge meinfeature</code></li>
+<li id="line345">Nicht mehr benötigten Branch löschen:<br>
+<code>#&gt; git branch -d meinfeature</code></li>
+<li id="line347">Aktualisierten master auf den Server pushen:<br>
+<code>#&gt; git push</code></li>
+</ul>
+<ul id="line351">
+<li id="line351">Fertig</li>
+</ul>
+<h2><a id="353"></a>weitere Befehle</h2>
+<p id="line355"><code>git stat</code></p>
+<p id="line357"><code>git diff</code></p>
+<p id="line359"><code>git fetch</code></p>
+<p id="line361"><code>git mv</code></p>
+<p id="line363"><code>git show</code></p>
+<p id="line365"><code>git remote show origin</code></p>
+<p id="line367"><code>git remote rm &lt;name&gt;</code></p>
+<p id="line369"><code>git rebase</code></p>
+<hr id="line372">
+<p id="line374"><em>~ Made by m0e@2019  --- enigma42Labs ~</em></p>
