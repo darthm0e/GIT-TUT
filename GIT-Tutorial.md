@@ -227,6 +227,8 @@ Um die aktuellsten Änderungen ins lokale Repository zu übertragen führt man `
 
 
 
+
+
 ### Branching
 
 ![branching](img/branching.png)
@@ -369,7 +371,6 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
 `git rebase`
 
- 
 ---
 
 *~ Made by m0e@2019  --- enigma42Labs ~*
