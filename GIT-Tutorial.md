@@ -1,5 +1,6 @@
-# GIT Tutorial
+# Hitchhikers Guide to GIT
 
+-- eine kurze Reise durchs GIT-Universum
 
 ` Work in Progress ! ||| Made by m0e@2019  --- E42L`
 
