@@ -292,7 +292,7 @@ Um für GIT Befehle eine Autovervollständigung zu erhalten, läd man (hier für
 herunter, und fügt `source ~/git-completion.bash` zu .bashrc hinzu.
 
 ### Alias
-git config --global alias.upPush ´git add . ; git commit -a -m; git push -u origin´
+-- coming soon --
 
 
 ## Reset lokal Repository
