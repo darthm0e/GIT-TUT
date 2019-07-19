@@ -1,12 +1,20 @@
 = Hitchhikers Guide to GIT
+m0e42 <info@enigma42.de>
+v1.0, 19.07.2019
+:toc: right
+:homepage: http://enigma42.de
+:source-highlighter: coderay
 
--- eine kurze Reise durchs GIT-Universum
+[quote, Work in Progress!!!]
+____
+eine kurze Reise durchs GIT-Universum +
+Made by m0e@2019   --   E42L (C)
+____
 
-` Work in Progress ! ||| Made by m0e@2019  --- E42L`
-
-[TOC]
 
 == Hilfreiche Links vorab:
+
+
 https://git-scm.com/book/de/v1/[Offizielles GIT Buch] -- Sehr gut, mehrsprachig
 
 https://rogerdudler.github.io/git-guide/index.de.html[Tutorial - kein SchnickSchnack] -- kurz und knackig
@@ -21,7 +29,7 @@ http://git.enigma42.de/m0e/GIT-Tut[Daten diese Tutorials] -- Repo des Tutorials
 
 https://github.com/darthm0e/Test-GIT-TUT[Tutorial Repo] -- Das Beispielrepository
 
----
+<<<
 
 
 == Grundlegende Befehle:
@@ -49,24 +57,26 @@ GIT ist ein relativ neues VCS (Version-Controll-System), welches im Unterschied 
 Hierbei werden effizienter weise nur geänderte Dateien neu gespeichert. Auf unveränderte Dateien wird nur ein Verweis auf den jeweiligen Snapshot angelegt. Dieses Konzept vereinfacht unter anderem die Arbeit mit Branches (*Grundlagen > Branching*).
 
 
-![Snapshots in GIT](img/snapshot.png)
+image::img/snapshot.png[Snapshots in GIT, width=512]
 
 
 Lokal wird mit `git init` ein Repository erzeugt, und der Ordner `.git` angelegt. Hier liegen Konfigurationsdateien des Repositorys und weiter Daten (für uns hier unrelevant).
 In der Regel wird man ein Verzeichnis wählen das bereits Daten enthält. Um diese dem Repository bekannt zu machen (einchecken) führen wir den Befehl `git add .` aus. Hiermit werden alle im Verzeichnis enthaltenen Dateien und Ordner ins Repository aufgenommen. Um nur bestimmte Dateien oder Ordner aufzunehmen kann man statt des Punktes den Datei-/Ordnernamen angeben. Möglich ist auch die Angabe in Form von "Wildcards" um etwa alle Dateien eines Typs auzunehmen -> `git add *.png` oder `git add GenialeDateien.*`
 
-```
+....
 ~Screendump:~
 
 $ git init
 Initialized empty Git repository in /mnt/c/Users/m0e/Documents/GIT/Test-GIT-TUT/.git/
 
 $ git add *.md
-```
-
+....
+<<<
 Unsere Dateien wurden jetzt zur Versionskontrolle (Staging Area) hinzugefügt, im Git Jargon `staged` oder `staging` genannt.
 mit `git status` zeigt uns GIT diesen Zustand auch an:
-```
+
+[source,bash]
+----
 ~Screendump:~
 
 $ git status
@@ -80,13 +90,13 @@ Changes to be committed:
         new file:   README.md
         new file:   Test.md
 
-```
+----
 
 Nachdem nun alle Dateien in der Staging Area gesammelt sind können wir einen Commit ausführen und die Dateien zum Repository hinzufügen.
 `git commit` öffnet den Standard Texteditor mit einer ähnlichen Meldung:
 
-```
-  GNU nano 2.7.4           File: /mnt/c/Users/m0e/Documents/GIT/Test-GIT-TUT/.git/COMMIT_EDITMSG                     
+....
+  GNU nano 2.7.4           File: /mnt/c/Users/m0e/Documents/GIT/Test-GIT-TUT/.git/COMMIT_EDITMSG
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -98,35 +108,38 @@ Nachdem nun alle Dateien in der Staging Area gesammelt sind können wir einen Co
 #       new file:   README.md
 #       new file:   Test.md
 #
-```
+....
+
 hier kann man noch weiter Kommentare einfügen, i.d.R. wird man die vorhanden Kommentare lassen, welches die Ausgabe von `git status` enthält. Hierdurch erkennt man besser was genau mit dem Commit geändert wurde. Gibt man zusätzlich den Schalter -v mit an wird noch ein DateiDiff der Commitmeldung hinzugefügt.
 
-Bei kleinen Änderungen kann die Commit Nachricht auch direkt im BEfehl mitgegeben werden 
-```
+Bei kleinen Änderungen kann die Commit Nachricht auch direkt im Befehl mitgegeben werden
+
+....
 $ git commit -m "Schneller Commit, kleine Bugfixes"
 [master (root-commit) f99b0dd] Schneller Commit, kleine Bugfixes
  2 files changed, 4 insertions(+)
  create mode 100644 README.md
  create mode 100644 Test.md
-```
+....
 
 Die Ausgabe darunter teilt uns nun mit das der Commit erfolgreich dem `master Branch` hinzugefügt wurde, die SHA-1 Checksumme *(f99b0dd)*, die Commitmeldung, die geänderten Dateien und eine Angabe über die hinzugefügten oder entfernten Zeilen.
 
 Für Dateien die bereits mit `git add` hinzugefügt wurden kann man später das Staging überspringen.
-```
+
+....
 $ git commit -a -m "Schneller Commit, kleine Bugfixes, OHNE Staging"
 [master f205c80] Schneller Commit, kleine Bugfixes, OHNE Staging
  1 file changed, 3 insertions(+)
-```
+....
 
 Normalerweise wird man im Umgang mit GIT einen Zentralen Server wie Github, Gitlab, Bitbucket oder selbsteghostet benutzen. Um unserem Lokalen Repository diesen Server bekannt zu machen führen wir den folgenden Befehl aus:
 `git remote add origin https://github.com/darthm0e/Test-GIT-TUT.git`
-Im Beispiel wird das **Vorher** angelegte Repository [Test-GIT-TUT](https://github.com/darthm0e/Test-GIT-TUT) auf [Github](http://www.github.com) benutzt. 
+Im Beispiel wird das **Vorher** angelegte Repository [Test-GIT-TUT](https://github.com/darthm0e/Test-GIT-TUT) auf [Github](http://www.github.com) benutzt.
 
 Wenn wir jetzt `git push -u origin master` ausführen werden unsere Daten des Commits auf den Remote Server (origin, Name wählbar) in den Master-Branch geladen. Hiermit können auch weiter Server oder Branches hinzugefügt werden.
 `git push -u developer nightly` würde die Daten auf einen mit `git remote` als Developer in die *Nightly-Branch* laden.
 
-```
+....
 $ git push -u origin master
 Username for 'https://github.com': supamoe25@gmail.com
 Password for 'https://supamoe25@gmail.com@github.com':
@@ -138,14 +151,15 @@ Total 7 (delta 0), reused 0 (delta 0)
 To https://github.com/darthm0e/Test-GIT-TUT.git
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
-```
+....
 
 Gibt man nun jemandem den Link zum Repository, kann sich dieser den Inhalt anschauen, auf seinen Rechner laden, bearbeiten, änderungen hochladen (schreibrechte vorrausgesetzt) etc.
 
 `git clone <link>` oder `git clone --recursive <link>`
 
 lädt das Repository in einen Unterordner(Name des Repo) ins aktuelle Verzeichniss.
-```
+
+....
 $ git clone https://github.com/darthm0e/Test-GIT-TUT.git
 Cloning into 'Test-GIT-TUT'...
 remote: Enumerating objects: 7, done.
@@ -153,10 +167,11 @@ remote: Counting objects: 100% (7/7), done.
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 7 (delta 0), reused 7 (delta 0), pack-reused 0
 Unpacking objects: 100% (7/7), done.
-```
+....
 
 Mit `git log` bzw `git log -p` kann man sich alle Commits bzw alle Commits mit änderungen anzeigen lassen:
-```
+
+....
 $ git log
 
 commit f205c80841f3b37957101285fc6af5b1691cc81d
@@ -171,8 +186,9 @@ Date:   Sat Jan 19 15:55:32 2019 +0100
 
     Schneller Commit, kleine Bugfixes
 (END)
-```
-```
+....
+
+....
 git log -p
 
 commit f205c80841f3b37957101285fc6af5b1691cc81d
@@ -214,15 +230,15 @@ index 0000000..980a0d5
 @@ -0,0 +1 @@
 +Hello World!
 (END)
-```
+....
 
 Eine Übersicht über die vorhandenen Remote Repositorys gibt `git remote -v`
 
-```
+....
 $ git remote -v
 origin  https://github.com/darthm0e/Test-GIT-TUT.git (fetch)
 origin  https://github.com/darthm0e/Test-GIT-TUT.git (push)
-```
+....
 
 Um die aktuellsten Änderungen ins lokale Repository zu übertragen führt man `git pull` aus. GIT versucht die neuen Commits aus dem Remote Repository zu holen und mit den lokalen Dateien zusammenzuführen.
 
@@ -232,7 +248,7 @@ Um die aktuellsten Änderungen ins lokale Repository zu übertragen führt man `
 
 ### Branching
 
-![branching](img/branching.png)
+image::img/branching.png[branching]
 
 
 
@@ -258,12 +274,13 @@ In GIT (wie auch in anderen VersionControll-Systemen - VCS) können mit Hilfe vo
 ![tags](img/tag.png)
 Um sich die in einem Repository vorhandenn Tags anzeigen zu lassen wird `git tag` benutzt. Hiermit werden die Tags in alphabetischer Reihenfolge aufgelistet
 
-```
+....
 $> git tag
 0.1
 help
 testing
-```
+....
+
 Um nur bestimmte Tags zu sehen kann man folgenden Befehl verwenden: `git tag -l 'v1.4.2'
 `
 
@@ -305,7 +322,7 @@ git reset –hard origin/master
 
 <<<
 
-## Software (Windows oder MultiPlattform) ###
+## Software (Windows oder MultiPlattform) ##
 
 https://git-scm.com/download/win[GitBash & GitGUI]
 image:img/gitGUI.png[gitGUI,width=512]
@@ -325,7 +342,7 @@ https://gitblade.com/[Git Blade]
 
 ---
 
-## Häufiger Workflow
+## Häufiger Workflow ##
 
 Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
@@ -354,7 +371,8 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 
 - Fertig
 
-## weitere Befehle ### 
+## weitere Befehle ##
+
 
 `git stat`
 
@@ -371,6 +389,7 @@ Während der Entwicklungsarbeit wird der Workflow meistens in etwa so aussehen:
 `git remote rm <name>`
 
 `git rebase`
+
 
 ---
 
